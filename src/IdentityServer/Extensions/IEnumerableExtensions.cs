@@ -2,6 +2,8 @@
 // See LICENSE in the project root for license information.
 
 
+#nullable enable
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,19 +17,14 @@ namespace Duende.IdentityServer.Extensions;
 public static class IEnumerableExtensions
 {
     [DebuggerStepThrough]
-    public static bool IsNullOrEmpty<T>([NotNullWhen(false)]this IEnumerable<T> list)
+    public static bool IsNullOrEmpty<T>([NotNullWhen(false)]this IEnumerable<T>? list)
     {
         if (list == null)
         {
             return true;
         }
 
-        if (!list.Any())
-        {
-            return true;
-        }
-
-        return false;
+        return !list.Any();
     }
 
     public static bool HasDuplicates<T, TProp>(this IEnumerable<T> list, Func<T, TProp> selector)
