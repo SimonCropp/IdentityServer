@@ -343,10 +343,4 @@ internal class RequestObjectValidator : IRequestObjectValidator
         var requestDetails = new AuthorizeRequestValidationLog(request, _options.Logging.AuthorizeRequestSensitiveValuesFilter);
         _logger.LogError(message + "\n{@requestDetails}", requestDetails);
     }
-
-    private void LogError(string message, string detail, ValidatedAuthorizeRequest request)
-    {
-        var requestDetails = new AuthorizeRequestValidationLog(request, _options.Logging.AuthorizeRequestSensitiveValuesFilter);
-        _logger.LogError(message + ": {detail}\n{@requestDetails}", detail, requestDetails);
-    }
 }
