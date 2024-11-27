@@ -16,7 +16,6 @@ class NopKeyStoreCache : ISigningKeyStoreCache
     /// <summary>
     /// Returns null.
     /// </summary>
-    /// <returns></returns>
     public Task<IEnumerable<KeyContainer>> GetKeysAsync()
     {
         return Task.FromResult<IEnumerable<KeyContainer>>(null);
@@ -27,7 +26,6 @@ class NopKeyStoreCache : ISigningKeyStoreCache
     /// </summary>
     /// <param name="keys"></param>
     /// <param name="duration"></param>
-    /// <returns></returns>
     public Task StoreKeysAsync(IEnumerable<KeyContainer> keys, TimeSpan duration)
     {
         return Task.CompletedTask;

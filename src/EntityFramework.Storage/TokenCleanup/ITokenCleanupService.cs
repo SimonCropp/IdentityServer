@@ -21,6 +21,5 @@ public interface ITokenCleanupService
     /// </summary>
     /// <param name="cancellationToken">A token that propagates notification
     /// that the cleanup operation should be canceled.</param>
-    /// <returns></returns>
     Task CleanupGrantsAsync(CancellationToken cancellationToken = default);
 }

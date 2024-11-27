@@ -87,7 +87,6 @@ public class IdentityProvider
     /// Properties indexer
     /// </summary>
     /// <param name="name"></param>
-    /// <returns></returns>
     protected string? this[string name]
     {
         get

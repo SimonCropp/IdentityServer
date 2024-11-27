@@ -34,7 +34,6 @@ public class DefaultDeviceFlowCodeService : IDeviceFlowCodeService
     /// </summary>
     /// <param name="userCode">The user code.</param>
     /// <param name="data">The data.</param>
-    /// <returns></returns>
     public async Task<string> StoreDeviceAuthorizationAsync(string userCode, DeviceCode data)
     {
         using var activity = Tracing.StoreActivitySource.StartActivity("DefaultDeviceFlowCodeService.SendLogoutNotifStoreDeviceAuthorization");
@@ -50,7 +49,6 @@ public class DefaultDeviceFlowCodeService : IDeviceFlowCodeService
     /// Finds device authorization by user code.
     /// </summary>
     /// <param name="userCode">The user code.</param>
-    /// <returns></returns>
     public Task<DeviceCode> FindByUserCodeAsync(string userCode)
     {
         using var activity = Tracing.StoreActivitySource.StartActivity("DefaultDeviceFlowCodeService.FindByUserCode");
@@ -62,7 +60,6 @@ public class DefaultDeviceFlowCodeService : IDeviceFlowCodeService
     /// Finds device authorization by device code.
     /// </summary>
     /// <param name="deviceCode">The device code.</param>
-    /// <returns></returns>
     public Task<DeviceCode> FindByDeviceCodeAsync(string deviceCode)
     {
         using var activity = Tracing.StoreActivitySource.StartActivity("DefaultDeviceFlowCodeService.FindByDeviceCode");
@@ -75,7 +72,6 @@ public class DefaultDeviceFlowCodeService : IDeviceFlowCodeService
     /// </summary>
     /// <param name="userCode">The user code.</param>
     /// <param name="data">The data.</param>
-    /// <returns></returns>
     public Task UpdateByUserCodeAsync(string userCode, DeviceCode data)
     {
         using var activity = Tracing.StoreActivitySource.StartActivity("DefaultDeviceFlowCodeService.UpdateByUserCode");
@@ -87,7 +83,6 @@ public class DefaultDeviceFlowCodeService : IDeviceFlowCodeService
     /// Removes the device authorization, searching by device code.
     /// </summary>
     /// <param name="deviceCode">The device code.</param>
-    /// <returns></returns>
     public Task RemoveByDeviceCodeAsync(string deviceCode)
     {
         using var activity = Tracing.StoreActivitySource.StartActivity("DefaultDeviceFlowCodeService.RemoveByDeviceCode");

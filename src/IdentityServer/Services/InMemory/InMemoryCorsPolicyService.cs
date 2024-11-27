@@ -42,7 +42,6 @@ public class InMemoryCorsPolicyService : ICorsPolicyService
     /// Determines whether origin is allowed.
     /// </summary>
     /// <param name="origin">The origin.</param>
-    /// <returns></returns>
     public virtual Task<bool> IsOriginAllowedAsync(string origin)
     {
         using var activity = Tracing.ServiceActivitySource.StartActivity("InMemoryCorsPolicyService.IsOriginAllowedAsync");

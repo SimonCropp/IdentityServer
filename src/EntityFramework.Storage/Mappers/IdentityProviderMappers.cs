@@ -13,7 +13,6 @@ public static class IdentityProviderMappers
     /// Maps an entity to a model.
     /// </summary>
     /// <param name="entity">The entity.</param>
-    /// <returns></returns>
     public static Models.IdentityProvider ToModel(this Entities.IdentityProvider entity)
     {
         return entity == null ? null :
@@ -31,7 +30,6 @@ public static class IdentityProviderMappers
     /// Maps a model to an entity.
     /// </summary>
     /// <param name="model">The model.</param>
-    /// <returns></returns>
     public static Entities.IdentityProvider ToEntity(this Models.IdentityProvider model)
     {
         return model == null ? null : 

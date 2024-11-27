@@ -56,7 +56,6 @@ public class DefaultEventService : IEventService
     /// Raises the specified event.
     /// </summary>
     /// <param name="evt">The event.</param>
-    /// <returns></returns>
     /// <exception cref="System.ArgumentNullException">evt</exception>
     public async Task RaiseAsync(Event evt)
     {
@@ -73,7 +72,6 @@ public class DefaultEventService : IEventService
     /// Indicates if the type of event will be persisted.
     /// </summary>
     /// <param name="evtType"></param>
-    /// <returns></returns>
     /// <exception cref="System.ArgumentOutOfRangeException"></exception>
     public bool CanRaiseEventType(EventTypes evtType)
     {
@@ -108,7 +106,6 @@ public class DefaultEventService : IEventService
     /// Prepares the event.
     /// </summary>
     /// <param name="evt">The evt.</param>
-    /// <returns></returns>
     protected virtual async Task PrepareEventAsync(Event evt)
     {
         evt.TimeStamp = Clock.UtcNow.DateTime;

@@ -73,7 +73,6 @@ public class DynamicProviderOptions
     /// Finds the DynamicProviderType registration by protocol type.
     /// </summary>
     /// <param name="type"></param>
-    /// <returns></returns>
     public DynamicProviderType? FindProviderType(string type)
     {
         return _providers.ContainsKey(type) ? _providers[type] : null;

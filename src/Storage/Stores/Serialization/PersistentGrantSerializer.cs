@@ -52,7 +52,6 @@ public class PersistentGrantSerializer : IPersistentGrantSerializer
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="value">The value.</param>
-    /// <returns></returns>
     public string Serialize<T>(T value)
     {
         var payload = JsonSerializer.Serialize(value, Settings);
@@ -77,7 +76,6 @@ public class PersistentGrantSerializer : IPersistentGrantSerializer
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="json">The json.</param>
-    /// <returns></returns>
     public T Deserialize<T>(string json)
     {
         var container = JsonSerializer.Deserialize<PersistentGrantDataContainer>(json, Settings);

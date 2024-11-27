@@ -38,7 +38,6 @@ public class DistributedCacheStateDataFormatter : ISecureDataFormat<Authenticati
     /// Protects the specified data.
     /// </summary>
     /// <param name="data">The data.</param>
-    /// <returns></returns>
     public string Protect(AuthenticationProperties data)
     {
         return Protect(data, null);
@@ -49,7 +48,6 @@ public class DistributedCacheStateDataFormatter : ISecureDataFormat<Authenticati
     /// </summary>
     /// <param name="data">The data.</param>
     /// <param name="purpose">The purpose.</param>
-    /// <returns></returns>
     public string Protect(AuthenticationProperties data, string purpose)
     {
         var key = Guid.NewGuid().ToString();
@@ -77,7 +75,6 @@ public class DistributedCacheStateDataFormatter : ISecureDataFormat<Authenticati
     /// Unprotects the specified protected text.
     /// </summary>
     /// <param name="protectedText">The protected text.</param>
-    /// <returns></returns>
     public AuthenticationProperties Unprotect(string protectedText)
     {
         return Unprotect(protectedText, null);
@@ -88,7 +85,6 @@ public class DistributedCacheStateDataFormatter : ISecureDataFormat<Authenticati
     /// </summary>
     /// <param name="protectedText">The protected text.</param>
     /// <param name="purpose">The purpose.</param>
-    /// <returns></returns>
     public AuthenticationProperties Unprotect(string protectedText, string purpose)
     {
         if (String.IsNullOrWhiteSpace(protectedText))

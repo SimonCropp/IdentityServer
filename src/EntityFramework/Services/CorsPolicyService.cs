@@ -52,7 +52,6 @@ public class CorsPolicyService : ICorsPolicyService
     /// Determines whether origin is allowed.
     /// </summary>
     /// <param name="origin">The origin.</param>
-    /// <returns></returns>
     public async Task<bool> IsOriginAllowedAsync(string origin)
     {
         origin = origin.ToLowerInvariant();

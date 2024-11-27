@@ -66,7 +66,6 @@ public class TokenCleanupService : ITokenCleanupService
     /// <summary>
     /// Removes the stale persisted grants.
     /// </summary>
-    /// <returns></returns>
     protected virtual async Task RemoveGrantsAsync(CancellationToken cancellationToken = default)
     {
         await RemoveExpiredPersistedGrantsAsync(cancellationToken);
@@ -79,7 +78,6 @@ public class TokenCleanupService : ITokenCleanupService
     /// <summary>
     /// Removes the expired persisted grants.
     /// </summary>
-    /// <returns></returns>
     protected virtual async Task RemoveExpiredPersistedGrantsAsync(CancellationToken cancellationToken = default)
     {
         var found = Int32.MaxValue;
@@ -148,7 +146,6 @@ public class TokenCleanupService : ITokenCleanupService
     /// <summary>
     /// Removes the consumed persisted grants.
     /// </summary>
-    /// <returns></returns>
     protected virtual async Task RemoveConsumedPersistedGrantsAsync(CancellationToken cancellationToken = default)
     {
         var found = Int32.MaxValue;
@@ -211,7 +208,6 @@ public class TokenCleanupService : ITokenCleanupService
     /// <summary>
     /// Removes the stale device codes.
     /// </summary>
-    /// <returns></returns>
     protected virtual async Task RemoveDeviceCodesAsync(CancellationToken cancellationToken = default)
     {
         var found = Int32.MaxValue;

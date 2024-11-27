@@ -493,7 +493,6 @@ public class DefaultDPoPProofValidator : IDPoPProofValidator
     /// <summary>
     /// Creates a nonce value to return to the client.
     /// </summary>
-    /// <returns></returns>
     protected virtual string CreateNonce(DPoPProofValidatonContext context, DPoPProofValidatonResult result)
     {
         var now = Clock.UtcNow.ToUnixTimeSeconds();
@@ -503,7 +502,6 @@ public class DefaultDPoPProofValidator : IDPoPProofValidator
     /// <summary>
     /// Reads the time the nonce was created.
     /// </summary>
-    /// <returns></returns>
     protected virtual ValueTask<long> GetUnixTimeFromNonceAsync(DPoPProofValidatonContext context, DPoPProofValidatonResult result)
     {
         try

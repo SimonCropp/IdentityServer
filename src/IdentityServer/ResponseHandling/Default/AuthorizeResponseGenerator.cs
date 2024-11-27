@@ -89,7 +89,6 @@ public class AuthorizeResponseGenerator : IAuthorizeResponseGenerator
     /// Creates the response
     /// </summary>
     /// <param name="request">The request.</param>
-    /// <returns></returns>
     /// <exception cref="System.InvalidOperationException">invalid grant type: " + request.GrantType</exception>
     public virtual async Task<AuthorizeResponse> CreateResponseAsync(ValidatedAuthorizeRequest request)
     {
@@ -116,7 +115,6 @@ public class AuthorizeResponseGenerator : IAuthorizeResponseGenerator
     /// Creates the response for a hybrid flow request
     /// </summary>
     /// <param name="request"></param>
-    /// <returns></returns>
     protected virtual async Task<AuthorizeResponse> CreateHybridFlowResponseAsync(ValidatedAuthorizeRequest request)
     {
         Logger.LogDebug("Creating Hybrid Flow response.");
@@ -134,7 +132,6 @@ public class AuthorizeResponseGenerator : IAuthorizeResponseGenerator
     /// Creates the response for a code flow request
     /// </summary>
     /// <param name="request"></param>
-    /// <returns></returns>
     protected virtual async Task<AuthorizeResponse> CreateCodeFlowResponseAsync(ValidatedAuthorizeRequest request)
     {
         Logger.LogDebug("Creating Authorization Code Flow response.");
@@ -158,7 +155,6 @@ public class AuthorizeResponseGenerator : IAuthorizeResponseGenerator
     /// </summary>
     /// <param name="request"></param>
     /// <param name="authorizationCode"></param>
-    /// <returns></returns>
     protected virtual async Task<AuthorizeResponse> CreateImplicitFlowResponseAsync(ValidatedAuthorizeRequest request, string authorizationCode = null)
     {
         Logger.LogDebug("Creating Implicit Flow response.");
@@ -234,7 +230,6 @@ public class AuthorizeResponseGenerator : IAuthorizeResponseGenerator
     /// Creates an authorization code
     /// </summary>
     /// <param name="request"></param>
-    /// <returns></returns>
     protected virtual async Task<AuthorizationCode> CreateCodeAsync(ValidatedAuthorizeRequest request)
     {
         string stateHash = null;

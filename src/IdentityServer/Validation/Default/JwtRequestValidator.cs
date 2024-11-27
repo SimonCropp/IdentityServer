@@ -147,7 +147,6 @@ public class JwtRequestValidator : IJwtRequestValidator
     /// Retrieves keys for a given client
     /// </summary>
     /// <param name="client">The client</param>
-    /// <returns></returns>
     protected virtual Task<List<SecurityKey>> GetKeysAsync(Client client)
     {
         return client.ClientSecrets.GetKeysAsync();
@@ -193,7 +192,6 @@ public class JwtRequestValidator : IJwtRequestValidator
     /// </summary>
     /// <param name="context"></param>
     /// <param name="token">The JWT token</param>
-    /// <returns></returns>
     protected virtual Task<List<Claim>> ProcessPayloadAsync(JwtRequestValidationContext context, JsonWebToken token)
     {
         // filter JWT validation values

@@ -20,7 +20,6 @@ public static class IResourceStoreExtensions
     /// </summary>
     /// <param name="store">The store.</param>
     /// <param name="scopeNames">The scope names.</param>
-    /// <returns></returns>
     public static async Task<Resources> FindResourcesByScopeAsync(this IResourceStore store, IEnumerable<string> scopeNames)
     {
         var identity = await store.FindIdentityResourcesByScopeNameAsync(scopeNames);
@@ -92,7 +91,6 @@ public static class IResourceStoreExtensions
     /// </summary>
     /// <param name="store">The store.</param>
     /// <param name="scopeNames">The scope names.</param>
-    /// <returns></returns>
     public static async Task<Resources> FindEnabledResourcesByScopeAsync(this IResourceStore store, IEnumerable<string> scopeNames)
     {
         return (await store.FindResourcesByScopeAsync(scopeNames)).FilterEnabled();
@@ -102,7 +100,6 @@ public static class IResourceStoreExtensions
     /// Gets all enabled resources.
     /// </summary>
     /// <param name="store">The store.</param>
-    /// <returns></returns>
     public static async Task<Resources> GetAllEnabledResourcesAsync(this IResourceStore store)
     {
         var resources = await store.GetAllResourcesAsync();
@@ -116,7 +113,6 @@ public static class IResourceStoreExtensions
     /// </summary>
     /// <param name="store">The store.</param>
     /// <param name="scopeNames">The scope names.</param>
-    /// <returns></returns>
     public static async Task<IEnumerable<IdentityResource>> FindEnabledIdentityResourcesByScopeAsync(this IResourceStore store, IEnumerable<string> scopeNames)
     {
         return (await store.FindIdentityResourcesByScopeNameAsync(scopeNames)).Where(x => x.Enabled).ToArray();

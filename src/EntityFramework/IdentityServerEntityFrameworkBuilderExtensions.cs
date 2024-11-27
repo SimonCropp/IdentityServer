@@ -27,7 +27,6 @@ public static class IdentityServerEntityFrameworkBuilderExtensions
     /// </summary>
     /// <param name="builder">The builder.</param>
     /// <param name="storeOptionsAction">The store options action.</param>
-    /// <returns></returns>
     public static IIdentityServerBuilder AddConfigurationStore(
         this IIdentityServerBuilder builder,
         Action<ConfigurationStoreOptions>? storeOptionsAction = null)
@@ -41,7 +40,6 @@ public static class IdentityServerEntityFrameworkBuilderExtensions
     /// <typeparam name="TContext">The IConfigurationDbContext to use.</typeparam>
     /// <param name="builder">The builder.</param>
     /// <param name="storeOptionsAction">The store options action.</param>
-    /// <returns></returns>
     public static IIdentityServerBuilder AddConfigurationStore<TContext>(
         this IIdentityServerBuilder builder,
         Action<ConfigurationStoreOptions>? storeOptionsAction = null)
@@ -61,7 +59,6 @@ public static class IdentityServerEntityFrameworkBuilderExtensions
     /// Configures caching for IClientStore, IResourceStore, and ICorsPolicyService with IdentityServer.
     /// </summary>
     /// <param name="builder">The builder.</param>
-    /// <returns></returns>
     public static IIdentityServerBuilder AddConfigurationStoreCache(
         this IIdentityServerBuilder builder)
     {
@@ -81,7 +78,6 @@ public static class IdentityServerEntityFrameworkBuilderExtensions
     /// </summary>
     /// <param name="builder">The builder.</param>
     /// <param name="storeOptionsAction">The store options action.</param>
-    /// <returns></returns>
     public static IIdentityServerBuilder AddOperationalStore(
         this IIdentityServerBuilder builder,
         Action<OperationalStoreOptions>? storeOptionsAction = null)
@@ -95,7 +91,6 @@ public static class IdentityServerEntityFrameworkBuilderExtensions
     /// <typeparam name="TContext">The IPersistedGrantDbContext to use.</typeparam>
     /// <param name="builder">The builder.</param>
     /// <param name="storeOptionsAction">The store options action.</param>
-    /// <returns></returns>
     public static IIdentityServerBuilder AddOperationalStore<TContext>(
         this IIdentityServerBuilder builder,
         Action<OperationalStoreOptions>? storeOptionsAction = null)
@@ -119,7 +114,6 @@ public static class IdentityServerEntityFrameworkBuilderExtensions
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="builder"></param>
-    /// <returns></returns>
     public static IIdentityServerBuilder AddOperationalStoreNotification<T>(
         this IIdentityServerBuilder builder)
         where T : class, IOperationalStoreNotification

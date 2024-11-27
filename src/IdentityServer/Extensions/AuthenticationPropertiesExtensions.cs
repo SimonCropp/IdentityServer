@@ -23,7 +23,6 @@ public static class AuthenticationPropertiesExtensions
     /// Gets the user's session identifier.
     /// </summary>
     /// <param name="properties"></param>
-    /// <returns></returns>
     public static string GetSessionId(this AuthenticationProperties properties)
     {
         if (properties?.Items.ContainsKey(SessionIdKey) == true)
@@ -39,7 +38,6 @@ public static class AuthenticationPropertiesExtensions
     /// </summary>
     /// <param name="properties"></param>
     /// <param name="sid">The session id</param>
-    /// <returns></returns>
     public static void SetSessionId(this AuthenticationProperties properties, string sid)
     {
         properties.Items[SessionIdKey] = sid;
@@ -49,7 +47,6 @@ public static class AuthenticationPropertiesExtensions
     /// Gets the list of client ids the user has signed into during their session.
     /// </summary>
     /// <param name="properties"></param>
-    /// <returns></returns>
     public static IEnumerable<string> GetClientList(this AuthenticationProperties properties)
     {
         if (properties?.Items.ContainsKey(ClientListKey) == true)

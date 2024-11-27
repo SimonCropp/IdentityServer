@@ -119,7 +119,6 @@ public class DefaultResourceValidator : IResourceValidator
     /// <param name="resourcesFromStore"></param>
     /// <param name="requestedScope"></param>
     /// <param name="result"></param>
-    /// <returns></returns>
     protected virtual async Task ValidateScopeAsync(
         Client client,
         Resources resourcesFromStore,
@@ -188,7 +187,6 @@ public class DefaultResourceValidator : IResourceValidator
     /// </summary>
     /// <param name="client"></param>
     /// <param name="identity"></param>
-    /// <returns></returns>
     protected virtual Task<bool> IsClientAllowedIdentityResourceAsync(Client client, IdentityResource identity)
     {
         var allowed = client.AllowedScopes.Contains(identity.Name);
@@ -204,7 +202,6 @@ public class DefaultResourceValidator : IResourceValidator
     /// </summary>
     /// <param name="client"></param>
     /// <param name="apiScope"></param>
-    /// <returns></returns>
     protected virtual Task<bool> IsClientAllowedApiScopeAsync(Client client, ApiScope apiScope)
     {
         var allowed = client.AllowedScopes.Contains(apiScope.Name);
@@ -219,7 +216,6 @@ public class DefaultResourceValidator : IResourceValidator
     /// Validates if the client is allowed offline_access.
     /// </summary>
     /// <param name="client"></param>
-    /// <returns></returns>
     protected virtual Task<bool> IsClientAllowedOfflineAccessAsync(Client client)
     {
         var allowed = client.AllowOfflineAccess;

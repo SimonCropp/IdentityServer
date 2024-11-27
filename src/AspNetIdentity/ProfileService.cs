@@ -67,7 +67,6 @@ public class ProfileService<TUser> : IProfileService
     /// This method is called whenever claims about the user are requested (e.g. during token creation or via the userinfo endpoint)
     /// </summary>
     /// <param name="context">The context.</param>
-    /// <returns></returns>
     public virtual async Task GetProfileDataAsync(ProfileDataRequestContext context)
     {
         var sub = context.Subject?.GetSubjectId();
@@ -81,7 +80,6 @@ public class ProfileService<TUser> : IProfileService
     /// </summary>
     /// <param name="context"></param>
     /// <param name="subjectId"></param>
-    /// <returns></returns>
     protected virtual async Task GetProfileDataAsync(ProfileDataRequestContext context, string subjectId)
     {
         var user = await FindUserAsync(subjectId);
@@ -96,7 +94,6 @@ public class ProfileService<TUser> : IProfileService
     /// </summary>
     /// <param name="context"></param>
     /// <param name="user"></param>
-    /// <returns></returns>
     protected virtual async Task GetProfileDataAsync(ProfileDataRequestContext context, TUser user)
     {
         var principal = await GetUserClaimsAsync(user);
@@ -107,7 +104,6 @@ public class ProfileService<TUser> : IProfileService
     /// Gets the claims for a user.
     /// </summary>
     /// <param name="user"></param>
-    /// <returns></returns>
     protected virtual async Task<ClaimsPrincipal> GetUserClaimsAsync(TUser user)
     {
         var principal = await ClaimsFactory.CreateAsync(user);
@@ -121,7 +117,6 @@ public class ProfileService<TUser> : IProfileService
     /// (e.g. during token issuance or validation).
     /// </summary>
     /// <param name="context">The context.</param>
-    /// <returns></returns>
     public virtual async Task IsActiveAsync(IsActiveContext context)
     {
         var sub = context.Subject?.GetSubjectId();
@@ -135,7 +130,6 @@ public class ProfileService<TUser> : IProfileService
     /// </summary>
     /// <param name="context"></param>
     /// <param name="subjectId"></param>
-    /// <returns></returns>
     protected virtual async Task IsActiveAsync(IsActiveContext context, string subjectId)
     {
         var user = await FindUserAsync(subjectId);
@@ -154,7 +148,6 @@ public class ProfileService<TUser> : IProfileService
     /// </summary>
     /// <param name="context"></param>
     /// <param name="user"></param>
-    /// <returns></returns>
     protected virtual async Task IsActiveAsync(IsActiveContext context, TUser user)
     {
         context.IsActive = await IsUserActiveAsync(user);
@@ -164,7 +157,6 @@ public class ProfileService<TUser> : IProfileService
     /// Returns if the user is active.
     /// </summary>
     /// <param name="user"></param>
-    /// <returns></returns>
     public virtual Task<bool> IsUserActiveAsync(TUser user)
     {
         return Task.FromResult(true);
@@ -174,7 +166,6 @@ public class ProfileService<TUser> : IProfileService
     /// Loads the user by the subject id.
     /// </summary>
     /// <param name="subjectId"></param>
-    /// <returns></returns>
     protected virtual async Task<TUser> FindUserAsync(string subjectId)
     {
         var user = await UserManager.FindByIdAsync(subjectId);

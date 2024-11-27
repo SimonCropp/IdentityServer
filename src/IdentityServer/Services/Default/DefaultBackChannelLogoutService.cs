@@ -94,7 +94,6 @@ public class DefaultBackChannelLogoutService : IBackChannelLogoutService
     /// Sends the logout notifications for the collection of clients.
     /// </summary>
     /// <param name="requests"></param>
-    /// <returns></returns>
     protected virtual Task SendLogoutNotificationsAsync(IEnumerable<BackChannelLogoutRequest> requests)
     {
         requests = requests ?? Enumerable.Empty<BackChannelLogoutRequest>();
@@ -117,7 +116,6 @@ public class DefaultBackChannelLogoutService : IBackChannelLogoutService
     /// </summary>
     /// <param name="client"></param>
     /// <param name="data"></param>
-    /// <returns></returns>
     protected virtual Task PostLogoutJwt(BackChannelLogoutRequest client, Dictionary<string, string> data)
     {
         return HttpClient.PostAsync(client.LogoutUri, data);
@@ -127,7 +125,6 @@ public class DefaultBackChannelLogoutService : IBackChannelLogoutService
     /// Creates the form-url-encoded payload (as a dictionary) to send to the client.
     /// </summary>
     /// <param name="request"></param>
-    /// <returns></returns>
     protected async Task<Dictionary<string, string>> CreateFormPostPayloadAsync(BackChannelLogoutRequest request)
     {
         var token = await CreateTokenAsync(request);

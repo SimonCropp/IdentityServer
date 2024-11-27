@@ -65,7 +65,6 @@ public class DefaultScopeParser : IScopeParser
     /// Parses a scope value.
     /// </summary>
     /// <param name="scopeContext"></param>
-    /// <returns></returns>
     public virtual void ParseScopeValue(ParseScopeContext scopeContext)
     {
         // nop leaves the raw scope value as a success result.

@@ -21,7 +21,6 @@ public interface IOperationalStoreNotification
     /// </summary>
     /// <param name="persistedGrants"></param>
     /// <param name="cancellationToken"></param>
-    /// <returns></returns>
     Task PersistedGrantsRemovedAsync(IEnumerable<PersistedGrant> persistedGrants, CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -29,6 +28,5 @@ public interface IOperationalStoreNotification
     /// </summary>
     /// <param name="deviceCodes"></param>
     /// <param name="cancellationToken"></param>
-    /// <returns></returns>
     Task DeviceCodesRemovedAsync(IEnumerable<DeviceFlowCodes> deviceCodes, CancellationToken cancellationToken = default);
 }

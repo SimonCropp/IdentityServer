@@ -23,7 +23,6 @@ public static class IdentityServerEntityFrameworkBuilderExtensions
     /// </summary>
     /// <param name="services"></param>
     /// <param name="storeOptionsAction">The store options action.</param>
-    /// <returns></returns>
     public static IServiceCollection AddConfigurationDbContext(this IServiceCollection services,
         Action<ConfigurationStoreOptions>? storeOptionsAction = null)
     {
@@ -36,7 +35,6 @@ public static class IdentityServerEntityFrameworkBuilderExtensions
     /// <typeparam name="TContext">The IConfigurationDbContext to use.</typeparam>
     /// <param name="services"></param>
     /// <param name="storeOptionsAction">The store options action.</param>
-    /// <returns></returns>
     public static IServiceCollection AddConfigurationDbContext<TContext>(this IServiceCollection services,
         Action<ConfigurationStoreOptions>? storeOptionsAction = null)
         where TContext : DbContext, IConfigurationDbContext
@@ -97,7 +95,6 @@ public static class IdentityServerEntityFrameworkBuilderExtensions
     /// </summary>
     /// <param name="services"></param>
     /// <param name="storeOptionsAction">The store options action.</param>
-    /// <returns></returns>
     public static IServiceCollection AddOperationalDbContext(this IServiceCollection services,
         Action<OperationalStoreOptions>? storeOptionsAction = null)
     {
@@ -110,7 +107,6 @@ public static class IdentityServerEntityFrameworkBuilderExtensions
     /// <typeparam name="TContext">The IPersistedGrantDbContext to use.</typeparam>
     /// <param name="services"></param>
     /// <param name="storeOptionsAction">The store options action.</param>
-    /// <returns></returns>
     public static IServiceCollection AddOperationalDbContext<TContext>(this IServiceCollection services,
         Action<OperationalStoreOptions>? storeOptionsAction = null)
         where TContext : DbContext, IPersistedGrantDbContext
@@ -174,7 +170,6 @@ public static class IdentityServerEntityFrameworkBuilderExtensions
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="services"></param>
-    /// <returns></returns>
     public static IServiceCollection AddOperationalStoreNotification<T>(this IServiceCollection services)
         where T : class, IOperationalStoreNotification
     {

@@ -67,7 +67,6 @@ public class IdentityServerUser
     /// <summary>
     /// Creates an IdentityServer claims principal
     /// </summary>
-    /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     public ClaimsPrincipal CreatePrincipal()
     {

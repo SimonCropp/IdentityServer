@@ -33,7 +33,6 @@ public static class IdentityServerApplicationBuilderExtensions
     /// </summary>
     /// <param name="app">The application.</param>
     /// <param name="options">The options.</param>
-    /// <returns></returns>
     public static IApplicationBuilder UseIdentityServer(this IApplicationBuilder app, IdentityServerMiddlewareOptions? options = null)
     {
         app.Validate();

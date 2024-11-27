@@ -18,7 +18,6 @@ public interface IDeviceFlowInteractionService
     /// Gets the authorization context asynchronous.
     /// </summary>
     /// <param name="userCode">The user code.</param>
-    /// <returns></returns>
     Task<DeviceFlowAuthorizationRequest?> GetAuthorizationContextAsync(string userCode);
 
     /// <summary>
@@ -26,6 +25,5 @@ public interface IDeviceFlowInteractionService
     /// </summary>
     /// <param name="userCode">The user code.</param>
     /// <param name="consent">The consent.</param>
-    /// <returns></returns>
     Task<DeviceFlowInteractionResult> HandleRequestAsync(string userCode, ConsentResponse consent);
 }

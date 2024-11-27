@@ -52,6 +52,5 @@ public abstract class KeyContainer
     /// <summary>
     /// Creates AsymmetricSecurityKey.
     /// </summary>
-    /// <returns></returns>
     public abstract AsymmetricSecurityKey ToSecurityKey();
 }

@@ -15,7 +15,6 @@ public static class PersistedGrantMappers
     /// Maps an entity to a model.
     /// </summary>
     /// <param name="entity">The entity.</param>
-    /// <returns></returns>
     public static PersistedGrant ToModel(this Entities.PersistedGrant entity)
     {
         return entity == null ? null :
@@ -38,7 +37,6 @@ public static class PersistedGrantMappers
     /// Maps a model to an entity.
     /// </summary>
     /// <param name="model">The model.</param>
-    /// <returns></returns>
     public static Entities.PersistedGrant ToEntity(this Models.PersistedGrant model)
     {
         return model == null ? null :

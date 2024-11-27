@@ -20,7 +20,6 @@ public static class ResourceExtensions
     /// Returns the collection of scope values that are required.
     /// </summary>
     /// <param name="resourceValidationResult"></param>
-    /// <returns></returns>
     public static IEnumerable<string> GetRequiredScopeValues(this ResourceValidationResult resourceValidationResult)
     {
         var names = resourceValidationResult.Resources.IdentityResources.Where(x => x.Required).Select(x => x.Name).ToList();
@@ -34,7 +33,6 @@ public static class ResourceExtensions
     /// Converts to scope names.
     /// </summary>
     /// <param name="resources">The resources.</param>
-    /// <returns></returns>
     public static IEnumerable<string> ToScopeNames(this Resources resources)
     {
         var names = resources.IdentityResources.Select(x => x.Name).ToList();
@@ -52,7 +50,6 @@ public static class ResourceExtensions
     /// </summary>
     /// <param name="resources">The resources.</param>
     /// <param name="name">The name.</param>
-    /// <returns></returns>
     public static IdentityResource FindIdentityResourcesByScope(this Resources resources, string name)
     {
         var q = from id in resources.IdentityResources
@@ -66,7 +63,6 @@ public static class ResourceExtensions
     /// </summary>
     /// <param name="resources">The resources.</param>
     /// <param name="name">The name.</param>
-    /// <returns></returns>
     public static IEnumerable<ApiResource> FindApiResourcesByScope(this Resources resources, string name)
     {
         var q = from api in resources.ApiResources
@@ -80,7 +76,6 @@ public static class ResourceExtensions
     /// </summary>
     /// <param name="resources">The resources.</param>
     /// <param name="name">The name.</param>
-    /// <returns></returns>
     public static ApiScope FindApiScope(this Resources resources, string name)
     {
         var q = from scope in resources.ApiScopes

@@ -56,7 +56,6 @@ public class SigningKeyStore : ISigningKeyStore
     /// <summary>
     /// Loads all keys from store.
     /// </summary>
-    /// <returns></returns>
     public async Task<IEnumerable<SerializedKey>> LoadKeysAsync()
     {
         using var activity = Tracing.StoreActivitySource.StartActivity("SigningKeyStore.LoadKeys");
@@ -80,7 +79,6 @@ public class SigningKeyStore : ISigningKeyStore
     /// Persists new key in store.
     /// </summary>
     /// <param name="key"></param>
-    /// <returns></returns>
     public Task StoreKeyAsync(SerializedKey key)
     {
         using var activity = Tracing.StoreActivitySource.StartActivity("SigningKeyStore.StoreKey");
@@ -104,7 +102,6 @@ public class SigningKeyStore : ISigningKeyStore
     /// Deletes key from storage.
     /// </summary>
     /// <param name="id"></param>
-    /// <returns></returns>
     public async Task DeleteKeyAsync(string id)
     {
         using var activity = Tracing.StoreActivitySource.StartActivity("SigningKeyStore.DeleteKey");

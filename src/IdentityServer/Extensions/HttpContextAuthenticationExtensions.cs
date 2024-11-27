@@ -21,7 +21,6 @@ public static class AuthenticationManagerExtensions
     /// </summary>
     /// <param name="context">The manager.</param>
     /// <param name="user">The IdentityServer user.</param>
-    /// <returns></returns>
     public static async Task SignInAsync(this HttpContext context, IdentityServerUser user)
     {
         await context.SignInAsync(await context.GetCookieAuthenticationSchemeAsync(), user.CreatePrincipal());
@@ -33,7 +32,6 @@ public static class AuthenticationManagerExtensions
     /// <param name="context">The manager.</param>
     /// <param name="user">The IdentityServer user.</param>
     /// <param name="properties">The authentication properties.</param>
-    /// <returns></returns>
     public static async Task SignInAsync(this HttpContext context, IdentityServerUser user, AuthenticationProperties properties)
     {
         await context.SignInAsync(await context.GetCookieAuthenticationSchemeAsync(), user.CreatePrincipal(), properties);

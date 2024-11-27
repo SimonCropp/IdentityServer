@@ -44,7 +44,6 @@ public class ClientSecretValidator : IClientSecretValidator
     /// Validates the current request.
     /// </summary>
     /// <param name="context">The context.</param>
-    /// <returns></returns>
     public async Task<ClientSecretValidationResult> ValidateAsync(HttpContext context)
     {
         using var activity = Tracing.ValidationActivitySource.StartActivity("ClientSecretValidator.Validate");

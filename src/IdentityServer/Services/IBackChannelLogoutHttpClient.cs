@@ -19,6 +19,5 @@ public interface IBackChannelLogoutHttpClient
     /// </summary>
     /// <param name="url"></param>
     /// <param name="payload"></param>
-    /// <returns></returns>
     Task PostAsync(string url, Dictionary<string, string> payload);
 }

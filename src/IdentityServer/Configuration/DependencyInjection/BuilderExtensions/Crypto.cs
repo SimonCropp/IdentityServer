@@ -27,7 +27,6 @@ public static class IdentityServerBuilderExtensionsCrypto
     /// </summary>
     /// <param name="builder">The builder.</param>
     /// <param name="credential">The credential.</param>
-    /// <returns></returns>
     public static IIdentityServerBuilder AddSigningCredential(this IIdentityServerBuilder builder, SigningCredentials credential)
     {
         if (!(credential.Key is AsymmetricSecurityKey
@@ -71,7 +70,6 @@ public static class IdentityServerBuilderExtensionsCrypto
     /// <param name="builder">The builder.</param>
     /// <param name="certificate">The certificate.</param>
     /// <param name="signingAlgorithm">The signing algorithm (defaults to RS256)</param>
-    /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     /// <exception cref="InvalidOperationException">X509 certificate does not have a private key.</exception>
     public static IIdentityServerBuilder AddSigningCredential(this IIdentityServerBuilder builder, X509Certificate2 certificate, string signingAlgorithm = SecurityAlgorithms.RsaSha256)
@@ -119,7 +117,6 @@ public static class IdentityServerBuilderExtensionsCrypto
     /// <param name="builder">The builder.</param>
     /// <param name="key">The key.</param>
     /// <param name="signingAlgorithm">The signing algorithm</param>
-    /// <returns></returns>
     public static IIdentityServerBuilder AddSigningCredential(this IIdentityServerBuilder builder, SecurityKey key, string signingAlgorithm)
     {
         var credential = new SigningCredentials(key, signingAlgorithm);
@@ -132,7 +129,6 @@ public static class IdentityServerBuilderExtensionsCrypto
     /// <param name="builder">The builder.</param>
     /// <param name="key">The RSA key.</param>
     /// <param name="signingAlgorithm">The signing algorithm</param>
-    /// <returns></returns>
     public static IIdentityServerBuilder AddSigningCredential(this IIdentityServerBuilder builder, RsaSecurityKey key, IdentityServerConstants.RsaSigningAlgorithm signingAlgorithm)
     {
         var credential = new SigningCredentials(key, CryptoHelper.GetRsaSigningAlgorithmValue(signingAlgorithm));
@@ -145,7 +141,6 @@ public static class IdentityServerBuilderExtensionsCrypto
     /// <param name="builder">The builder.</param>
     /// <param name="key">The ECDsa key.</param>
     /// <param name="signingAlgorithm">The signing algorithm</param>
-    /// <returns></returns>
     public static IIdentityServerBuilder AddSigningCredential(this IIdentityServerBuilder builder, ECDsaSecurityKey key, IdentityServerConstants.ECDsaSigningAlgorithm signingAlgorithm)
     {
         var credential = new SigningCredentials(key, CryptoHelper.GetECDsaSigningAlgorithmValue(signingAlgorithm));
@@ -159,7 +154,6 @@ public static class IdentityServerBuilderExtensionsCrypto
     /// <param name="persistKey">Specifies if the temporary key should be persisted to disk.</param>
     /// <param name="filename">The filename.</param>
     /// <param name="signingAlgorithm">The signing algorithm (defaults to RS256)</param>
-    /// <returns></returns>
     public static IIdentityServerBuilder AddDeveloperSigningCredential(
         this IIdentityServerBuilder builder,
         bool persistKey = true,
@@ -198,7 +192,6 @@ public static class IdentityServerBuilderExtensionsCrypto
     /// </summary>
     /// <param name="builder">The builder.</param>
     /// <param name="keys">The keys.</param>
-    /// <returns></returns>
     public static IIdentityServerBuilder AddValidationKey(this IIdentityServerBuilder builder, params SecurityKeyInfo[] keys)
     {
         builder.Services.AddSingleton<IValidationKeysStore>(new InMemoryValidationKeysStore(keys));
@@ -212,7 +205,6 @@ public static class IdentityServerBuilderExtensionsCrypto
     /// <param name="builder">The builder.</param>
     /// <param name="key">The RSA key</param>
     /// <param name="signingAlgorithm">The RSA-based signing algorithm</param>
-    /// <returns></returns>
     public static IIdentityServerBuilder AddValidationKey(
         this IIdentityServerBuilder builder,
         RsaSecurityKey key,
@@ -233,7 +225,6 @@ public static class IdentityServerBuilderExtensionsCrypto
     /// <param name="builder">The builder.</param>
     /// <param name="key">The ECDSA key</param>
     /// <param name="signingAlgorithm">The ECDSA-based signing algorithm</param>
-    /// <returns></returns>
     public static IIdentityServerBuilder AddValidationKey(
         this IIdentityServerBuilder builder,
         ECDsaSecurityKey key,
@@ -254,7 +245,6 @@ public static class IdentityServerBuilderExtensionsCrypto
     /// <param name="builder">The builder.</param>
     /// <param name="certificate">The certificate.</param>
     /// <param name="signingAlgorithm">The signing algorithm</param>
-    /// <returns></returns>
     /// <exception cref="ArgumentNullException"></exception>
     public static IIdentityServerBuilder AddValidationKey(
         this IIdentityServerBuilder builder,

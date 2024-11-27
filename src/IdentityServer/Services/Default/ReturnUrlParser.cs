@@ -28,7 +28,6 @@ public class ReturnUrlParser
     /// Parses the return URL.
     /// </summary>
     /// <param name="returnUrl">The return URL.</param>
-    /// <returns></returns>
     public virtual async Task<AuthorizationRequest> ParseAsync(string returnUrl)
     {
         using var activity = Tracing.ValidationActivitySource.StartActivity("ReturnUrlParser.Parse");

@@ -20,7 +20,6 @@ public interface IAutomaticKeyManagerKeyStore : IValidationKeysStore, ISigningCr
     /// <summary>
     /// Gets all the signing credentials.
     /// </summary>
-    /// <returns></returns>
     Task<IEnumerable<SigningCredentials>> GetAllSigningCredentialsAsync();
 }
 

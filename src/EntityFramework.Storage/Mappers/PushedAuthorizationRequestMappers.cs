@@ -15,7 +15,6 @@ public static class PushedAuthorizationRequestMappers
     /// Maps an entity to a model.
     /// </summary>
     /// <param name="entity">The entity.</param>
-    /// <returns></returns>
     public static Models.PushedAuthorizationRequest ToModel(this PushedAuthorizationRequest entity)
     {
         return entity == null ? null :
@@ -31,7 +30,6 @@ public static class PushedAuthorizationRequestMappers
     /// Maps a model to an entity.
     /// </summary>
     /// <param name="model">The model.</param>
-    /// <returns></returns>
     public static Entities.PushedAuthorizationRequest ToEntity(this Models.PushedAuthorizationRequest model)
     {
         return model == null ? null : 

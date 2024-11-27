@@ -17,6 +17,5 @@ public interface IUserInfoResponseGenerator
     /// Creates the response.
     /// </summary>
     /// <param name="validationResult">The userinfo request validation result.</param>
-    /// <returns></returns>
     Task<Dictionary<string, object>> ProcessAsync(UserInfoRequestValidationResult validationResult);
 }

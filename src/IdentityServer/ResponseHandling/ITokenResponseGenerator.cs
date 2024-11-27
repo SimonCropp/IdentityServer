@@ -18,6 +18,5 @@ public interface ITokenResponseGenerator
     /// Processes the response.
     /// </summary>
     /// <param name="validationResult">The validation result.</param>
-    /// <returns></returns>
     Task<TokenResponse> ProcessAsync(TokenRequestValidationResult validationResult);
 }

@@ -19,7 +19,6 @@ public interface IPushedAuthorizationRequestStore
     /// Stores the pushed authorization request.
     /// </summary>
     /// <param name="pushedAuthorizationRequest">The request.</param>
-    /// <returns></returns>
     Task StoreAsync(PushedAuthorizationRequest pushedAuthorizationRequest);
 
     /// <summary>
@@ -32,7 +31,6 @@ public interface IPushedAuthorizationRequestStore
     /// <param name="referenceValueHash">The hash of the reference value of the
     /// pushed authorization request. The reference value is the identifier
     /// within the request_uri parameter.</param>
-    /// <returns></returns>
     Task ConsumeByHashAsync(string referenceValueHash);
 
     /// <summary>
