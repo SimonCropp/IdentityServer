@@ -107,7 +107,7 @@ public class DefaultRefreshTokenService : IRefreshTokenService
         /////////////////////////////////////////////
         if (client.ClientId != refreshToken.ClientId)
         {
-            Logger.LogError("{0} tries to refresh token belonging to {1}", client.ClientId, refreshToken.ClientId);
+            Logger.LogError("{clientId} tries to refresh token belonging to {refreshTokenClientId}", client.ClientId, refreshToken.ClientId);
             return invalidGrant;
         }
 

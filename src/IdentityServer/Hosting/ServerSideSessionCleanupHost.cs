@@ -102,7 +102,7 @@ public class ServerSideSessionCleanupHost : IHostedService
             }
             catch (Exception ex)
             {
-                _logger.LogError("Task.Delay exception: {0}. Exiting.", ex.Message);
+                _logger.LogError("Task.Delay exception: {exceptionMessage}. Exiting.", ex.Message);
                 break;
             }
 
