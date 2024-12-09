@@ -55,14 +55,14 @@ internal class BackchannelAuthenticationRequestIdValidator : IBackchannelAuthent
         // validate client binding
         if (request.ClientId != context.Request.Client.ClientId)
         {
-            _logger.LogError("Client {0} is trying to use a authentication request id from client {1}", context.Request.Client.ClientId, request.ClientId);
+            _logger.LogError("Client {httpClientId} is trying to use a authentication request id from client {backchannelAuthenticationStoreClientId}", context.Request.Client.ClientId, request.ClientId);
             context.Result = new TokenRequestValidationResult(context.Request, OidcConstants.TokenErrors.InvalidGrant);
             return;
         }
 
         if (await _throttlingService.ShouldSlowDown(context.AuthenticationRequestId, request))
         {
-            _logger.LogError("Client {0} is polling too fast", request.ClientId);
+            _logger.LogError("Client {clientId} is polling too fast", request.ClientId);
             context.Result = new TokenRequestValidationResult(context.Request, OidcConstants.TokenErrors.SlowDown);
             return;
         }
