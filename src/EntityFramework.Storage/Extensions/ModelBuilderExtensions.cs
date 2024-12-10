@@ -163,7 +163,7 @@ public static class ModelBuilderExtensions
             grant.Property(x => x.Data).HasMaxLength(50000).IsRequired();
 
             grant.HasKey(x => x.Id);
-            
+
             grant.HasIndex(x => x.Key).IsUnique();
             grant.HasIndex(x => new { x.SubjectId, x.ClientId, x.Type });
             grant.HasIndex(x => new { x.SubjectId, x.SessionId, x.Type });
@@ -310,18 +310,18 @@ public static class ModelBuilderExtensions
             apiClaim.ToTable(storeOptions.ApiResourceClaim).HasKey(x => x.Id);
 
             apiClaim.Property(x => x.Type).HasMaxLength(200).IsRequired();
-                
+
             apiClaim.HasIndex(x => new { x.ApiResourceId, x.Type }).IsUnique();
         });
 
-        modelBuilder.Entity<ApiResourceScope>((System.Action<EntityTypeBuilder<ApiResourceScope>>)(apiScope =>
+        modelBuilder.Entity<ApiResourceScope>(apiScope =>
         {
-            apiScope.ToTable((TableConfiguration)storeOptions.ApiResourceScope).HasKey(x => x.Id);
+            apiScope.ToTable(storeOptions.ApiResourceScope).HasKey(x => x.Id);
 
             apiScope.Property(x => x.Scope).HasMaxLength(200).IsRequired();
-                
+
             apiScope.HasIndex(x => new { x.ApiResourceId, x.Scope }).IsUnique();
-        }));
+        });
 
         modelBuilder.Entity<ApiResourceProperty>(property =>
         {
@@ -331,7 +331,6 @@ public static class ModelBuilderExtensions
 
             property.HasIndex(x => new { x.ApiResourceId, x.Key }).IsUnique();
         });
-
 
         modelBuilder.Entity<ApiScope>(scope =>
         {

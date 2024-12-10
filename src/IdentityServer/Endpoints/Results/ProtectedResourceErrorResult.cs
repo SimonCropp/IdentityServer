@@ -62,12 +62,12 @@ internal class ProtectedResourceErrorHttpWriter : IHttpResponseWriter<ProtectedR
         var errorString = string.Format($"error=\"{error}\"");
         if (errorDescription.IsMissing())
         {
-            context.Response.Headers.Append(HeaderNames.WWWAuthenticate, new StringValues(new[] { "Bearer realm=\"IdentityServer\"", errorString }).ToString());
+            context.Response.Headers.Append(HeaderNames.WWWAuthenticate, new StringValues(new[] { "Bearer realm=\"IdentityServer\"", errorString }));
         }
         else
         {
             var errorDescriptionString = string.Format($"error_description=\"{errorDescription}\"");
-            context.Response.Headers.Append(HeaderNames.WWWAuthenticate, new StringValues(new[] { "Bearer realm=\"IdentityServer\"", errorString, errorDescriptionString }).ToString());
+            context.Response.Headers.Append(HeaderNames.WWWAuthenticate, new StringValues(new[] { "Bearer realm=\"IdentityServer\"", errorString, errorDescriptionString }));
         }
 
         return Task.CompletedTask;

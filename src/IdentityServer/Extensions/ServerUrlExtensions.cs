@@ -19,7 +19,7 @@ public static class ServerUrlExtensions
     /// </summary>
     public static string GetUnicodeOrigin(this IServerUrls urls)
     {
-        var split = urls.Origin.Split(new[] { "://" }, StringSplitOptions.RemoveEmptyEntries);
+        var split = urls.Origin.Split("://", StringSplitOptions.RemoveEmptyEntries);
         var scheme = split.First();
         var host = HostString.FromUriComponent(split.Last()).Value;
             

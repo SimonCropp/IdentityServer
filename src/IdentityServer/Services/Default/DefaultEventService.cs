@@ -112,7 +112,8 @@ public class DefaultEventService : IEventService
     protected virtual async Task PrepareEventAsync(Event evt)
     {
         evt.TimeStamp = Clock.UtcNow.DateTime;
-        evt.ProcessId = Process.GetCurrentProcess().Id;
+        using var process = Process.GetCurrentProcess();
+        evt.ProcessId = process.Id;
 
         if (Context.HttpContext?.TraceIdentifier != null)
         {
@@ -125,7 +126,7 @@ public class DefaultEventService : IEventService
 
         if (Context.HttpContext?.Connection.LocalIpAddress != null)
         {
-            evt.LocalIpAddress = Context.HttpContext.Connection.LocalIpAddress.ToString() + ":" + Context.HttpContext.Connection.LocalPort;
+            evt.LocalIpAddress = Context.HttpContext.Connection.LocalIpAddress + ":" + Context.HttpContext.Connection.LocalPort;
         }
         else
         {

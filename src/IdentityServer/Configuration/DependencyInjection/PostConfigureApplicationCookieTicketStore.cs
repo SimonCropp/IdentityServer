@@ -61,7 +61,7 @@ public class PostConfigureApplicationCookieTicketStore : IPostConfigureOptions<C
         {
             if(_httpContextAccessor.HttpContext == null)
             {
-                _logger.LogDebug("Failed to configure server side sessions for the authentication cookie scheme \"{scheme}\" because there is no current HTTP request");
+                _logger?.LogDebug("Failed to configure server side sessions for the authentication cookie scheme \"{scheme}\" because there is no current HTTP request");
                 return;
             }
 

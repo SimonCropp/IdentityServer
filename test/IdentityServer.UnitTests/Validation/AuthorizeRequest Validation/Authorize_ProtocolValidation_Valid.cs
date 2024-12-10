@@ -212,7 +212,7 @@ public class Authorize_ProtocolValidation_Valid
         parameters.Add(OidcConstants.AuthorizeRequest.RedirectUri, "https://server/cb");
         parameters.Add(OidcConstants.AuthorizeRequest.ResponseType, OidcConstants.ResponseTypes.Code);
         parameters.Add(OidcConstants.AuthorizeRequest.ResponseMode, OidcConstants.ResponseModes.Fragment);
-        parameters.Add(OidcConstants.AuthorizeRequest.Prompt, OidcConstants.PromptModes.Consent.ToString() + " " + OidcConstants.PromptModes.Login.ToString());
+        parameters.Add(OidcConstants.AuthorizeRequest.Prompt, OidcConstants.PromptModes.Consent + " " + OidcConstants.PromptModes.Login);
 
         var validator = Factory.CreateAuthorizeRequestValidator();
         var result = await validator.ValidateAsync(parameters);

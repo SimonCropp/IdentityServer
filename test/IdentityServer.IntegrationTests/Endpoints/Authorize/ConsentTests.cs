@@ -242,7 +242,7 @@ public class ConsentTests
         response.StatusCode.Should().Be(HttpStatusCode.Redirect);
         response.Headers.Location.ToString().Should().StartWith("/connect/authorize/callback");
 
-        var modifiedAuthorizeCallback = "https://server" + response.Headers.Location.ToString();
+        var modifiedAuthorizeCallback = "https://server" + response.Headers.Location;
         modifiedAuthorizeCallback = modifiedAuthorizeCallback.Replace("api2", "api1%20api2");
 
         response = await _mockPipeline.BrowserClient.GetAsync(modifiedAuthorizeCallback);

@@ -34,7 +34,7 @@ public class DefaultServerUrls : IServerUrls
         }
         set
         {
-            var split = value.Split(new[] { "://" }, StringSplitOptions.RemoveEmptyEntries);
+            var split = value.Split("://", StringSplitOptions.RemoveEmptyEntries);
 
             var request = _httpContextAccessor.HttpContext.Request;
             request.Scheme = split.First();

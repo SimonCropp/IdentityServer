@@ -277,17 +277,17 @@ public class KeyManager : IKeyManager
         if (alg.IsRsaKey)
         {
             var rsa = CryptoHelper.CreateRsaSecurityKey(_options.KeyManagement.RsaKeySize);
-                
+
             container = alg.UseX509Certificate ?
                 new X509KeyContainer(rsa, alg.Name, now, _options.KeyManagement.KeyRetirementAge, iss) :
-                (KeyContainer)new RsaKeyContainer(rsa, alg.Name, now);
+                new RsaKeyContainer(rsa, alg.Name, now);
         }
         else if (alg.IsEcKey)
         {
             var ec = CryptoHelper.CreateECDsaSecurityKey(CryptoHelper.GetCurveNameFromSigningAlgorithm(alg.Name));
             // X509 certs don't currently work with EC keys.
             container = //_options.KeyManagement.WrapKeysInX509Certificate ? //new X509KeyContainer(ec, alg, now, _options.KeyManagement.KeyRetirementAge, iss) :
-                (KeyContainer) new EcKeyContainer(ec, alg.Name, now);
+                new EcKeyContainer(ec, alg.Name, now);
         }
         else
         {

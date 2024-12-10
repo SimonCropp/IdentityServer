@@ -51,7 +51,7 @@ public class Client
     public int RefreshTokenUsage { get; set; } = (int)TokenUsage.OneTimeOnly;
     public bool UpdateAccessTokenClaimsOnRefresh { get; set; }
     public int RefreshTokenExpiration { get; set; } = (int)TokenExpiration.Absolute;
-    public int AccessTokenType { get; set; } = (int)0; // AccessTokenType.Jwt;
+    public int AccessTokenType { get; set; } = 0; // AccessTokenType.Jwt;
     public bool EnableLocalLogin { get; set; } = true;
     public List<ClientIdPRestriction> IdentityProviderRestrictions { get; set; }
     public bool IncludeJwtId { get; set; }
