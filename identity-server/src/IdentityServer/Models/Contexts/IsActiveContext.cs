@@ -17,7 +17,7 @@ public class IsActiveContext
     /// <summary>
     /// Initializes a new instance of the <see cref="IsActiveContext"/> class.
     /// </summary>
-    public IsActiveContext(ClaimsPrincipal subject, Client client, string caller)
+    public IsActiveContext(ClaimsPrincipal? subject, Client? client, string caller)
     {
         ArgumentNullException.ThrowIfNull(subject);
         ArgumentNullException.ThrowIfNull(client);
