@@ -2,6 +2,7 @@
 // See LICENSE in the project root for license information.
 
 
+#nullable enable
 using System.Collections.Specialized;
 using System.Security.Claims;
 using Duende.IdentityModel;
@@ -33,7 +34,7 @@ internal abstract class AuthorizeEndpointBase : IEndpointHandler
     private readonly IAuthorizeRequestValidator _validator;
 
     private readonly IConsentMessageStore _consentResponseStore;
-    private readonly IAuthorizationParametersMessageStore _authorizationParametersMessageStore;
+    private readonly IAuthorizationParametersMessageStore? _authorizationParametersMessageStore;
 
     protected AuthorizeEndpointBase(
         IEventService events,
@@ -44,7 +45,7 @@ internal abstract class AuthorizeEndpointBase : IEndpointHandler
         IAuthorizeResponseGenerator authorizeResponseGenerator,
         IUserSession userSession,
         IConsentMessageStore consentResponseStore,
-        IAuthorizationParametersMessageStore authorizationParametersMessageStore = null)
+        IAuthorizationParametersMessageStore? authorizationParametersMessageStore = null)
     {
         _events = events;
         _options = options;
@@ -61,9 +62,9 @@ internal abstract class AuthorizeEndpointBase : IEndpointHandler
 
     protected IUserSession UserSession { get; private set; }
 
-    public abstract Task<IEndpointResult> ProcessAsync(HttpContext context);
+    public abstract Task<IEndpointResult?> ProcessAsync(HttpContext context);
 
-    internal async Task<IEndpointResult> ProcessAuthorizeRequestAsync(NameValueCollection parameters, ClaimsPrincipal user, bool checkConsentResponse = false)
+    internal async Task<IEndpointResult> ProcessAuthorizeRequestAsync(NameValueCollection parameters, ClaimsPrincipal? user, bool checkConsentResponse = false)
     {
         if (user != null)
         {
@@ -95,11 +96,11 @@ internal abstract class AuthorizeEndpointBase : IEndpointHandler
                 result.ErrorDescription);
         }
 
-        string consentRequestId = null;
+        string? consentRequestId = null;
 
         try
         {
-            Message<ConsentResponse> consent = null;
+            Message<ConsentResponse>? consent = null;
 
             if (checkConsentResponse)
             {
@@ -129,14 +130,17 @@ internal abstract class AuthorizeEndpointBase : IEndpointHandler
                 {
                     return new LoginPageResult(request, _options);
                 }
+
                 if (interactionResult.IsConsent)
                 {
                     return new ConsentPageResult(request, _options);
                 }
+
                 if (interactionResult.IsRedirect)
                 {
                     return new CustomRedirectResult(request, interactionResult.RedirectUrl, _options);
                 }
+
                 if (interactionResult.IsCreateAccount)
                 {
                     return new CreateAccountPageResult(request, _options);
@@ -162,21 +166,20 @@ internal abstract class AuthorizeEndpointBase : IEndpointHandler
 
     protected async Task<IEndpointResult> CreateErrorResultAsync(
         string logMessage,
-        ValidatedAuthorizeRequest request = null,
-        string error = OidcConstants.AuthorizeErrors.ServerError,
-        string errorDescription = null,
+        ValidatedAuthorizeRequest request,
+        string? error = null,
+        string? errorDescription = null,
         bool logError = true)
     {
+        error ??= OidcConstants.AuthorizeErrors.ServerError;
+
         if (logError)
         {
             Logger.LogError(logMessage);
         }
 
-        if (request != null)
-        {
-            var details = new AuthorizeRequestValidationLog(request, _options.Logging.AuthorizeRequestSensitiveValuesFilter);
-            Logger.LogInformation("{@validationDetails}", details);
-        }
+        var details = new AuthorizeRequestValidationLog(request, _options.Logging.AuthorizeRequestSensitiveValuesFilter);
+        Logger.LogInformation("{@validationDetails}", details);
 
         // TODO: should we raise a token failure event for all errors to the authorize endpoint?
         await RaiseFailureEventAsync(request, error, errorDescription);
@@ -211,17 +214,19 @@ internal abstract class AuthorizeEndpointBase : IEndpointHandler
         {
             Logger.LogTrace("Identity token issued for {clientId} / {subjectId}: {token}", clientId, subjectId, response.IdentityToken);
         }
+
         if (response.Code != null)
         {
             Logger.LogTrace("Code issued for {clientId} / {subjectId}: {token}", clientId, subjectId, response.Code);
         }
+
         if (response.AccessToken != null)
         {
             Logger.LogTrace("Access token issued for {clientId} / {subjectId}: {token}", clientId, subjectId, response.AccessToken);
         }
     }
 
-    private Task RaiseFailureEventAsync(ValidatedAuthorizeRequest request, string error, string errorDescription)
+    private Task RaiseFailureEventAsync(ValidatedAuthorizeRequest request, string error, string? errorDescription)
     {
         Telemetry.Metrics.TokenIssuedFailure(
             request.ClientId,
