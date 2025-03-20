@@ -2,6 +2,7 @@
 // See LICENSE in the project root for license information.
 
 
+#nullable enable
 using System.Net;
 using Duende.IdentityServer.Configuration;
 using Duende.IdentityServer.Endpoints.Results;
@@ -27,7 +28,7 @@ internal class AuthorizeCallbackEndpoint : AuthorizeEndpointBase
         IAuthorizeResponseGenerator authorizeResponseGenerator,
         IUserSession userSession,
         IConsentMessageStore consentResponseStore,
-        IAuthorizationParametersMessageStore authorizationParametersMessageStore = null)
+        IAuthorizationParametersMessageStore? authorizationParametersMessageStore = null)
         : base(events, logger, options, validator, interactionGenerator, authorizeResponseGenerator, userSession, consentResponseStore, authorizationParametersMessageStore)
     {
     }
@@ -49,7 +50,7 @@ internal class AuthorizeCallbackEndpoint : AuthorizeEndpointBase
 
         var result = await ProcessAuthorizeRequestAsync(parameters, user, true);
 
-        Logger.LogTrace("End Authorize Request. Result type: {0}", result?.GetType().ToString() ?? "-none-");
+        Logger.LogTrace("End Authorize Request. Result type: {0}", result.GetType().ToString());
 
         return result;
     }
