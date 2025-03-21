@@ -6,11 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Duende.IdentityServer" />
     <PackageReference Include="Duende.IdentityModel" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\..\..\identity-server\src\IdentityServer\Duende.IdentityServer.csproj" />
     <ProjectReference Include="..\Hosts.ServiceDefaults\Hosts.ServiceDefaults.csproj" />
   </ItemGroup>
 

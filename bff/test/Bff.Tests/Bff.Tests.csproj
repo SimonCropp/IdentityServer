@@ -7,13 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Duende.IdentityServer" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <PackageReference Include="Microsoft.AspNetCore.TestHost" />
     <PackageReference Include="Microsoft.Extensions.TimeProvider.Testing" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\..\..\identity-server\src\IdentityServer\Duende.IdentityServer.csproj" />
     <ProjectReference Include="..\..\src\Bff\Bff.csproj" />
     <ProjectReference Include="..\..\src\Bff.Yarp\Bff.Yarp.csproj" />
   </ItemGroup>

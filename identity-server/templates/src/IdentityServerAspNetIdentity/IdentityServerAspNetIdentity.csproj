@@ -7,8 +7,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Duende.IdentityServer.AspNetIdentity" version="7.2.0" />
-
+		<ProjectReference Include="..\..\..\src\AspNetIdentity\Duende.IdentityServer.AspNetIdentity.csproj" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.11" />
 		<PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
 
