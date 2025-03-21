@@ -198,11 +198,11 @@ internal static class StringExtensions
     {
         if (!url.Contains('?'))
         {
-            url += "?";
+            url += '?';
         }
         else if (!url.EndsWith('&'))
         {
-            url += "&";
+            url += '&';
         }
 
         return url + query;
