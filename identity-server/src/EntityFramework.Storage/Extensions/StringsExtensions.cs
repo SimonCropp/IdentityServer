@@ -78,7 +78,7 @@ internal static class StringExtensions
     {
         if (url != null && !url.StartsWith('/'))
         {
-            return "/" + url;
+            return '/' + url;
         }
 
         return url;
@@ -89,7 +89,7 @@ internal static class StringExtensions
     {
         if (url != null && !url.EndsWith('/'))
         {
-            return url + "/";
+            return url + '/';
         }
 
         return url;
